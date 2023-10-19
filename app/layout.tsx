@@ -4,7 +4,7 @@ import { Nav } from './components/Nav'
 
 /* Instruments */
 import styles from './styles/layout.module.css'
-import './styles/globals.css'
+import './globals.css'
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
