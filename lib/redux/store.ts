@@ -1,19 +1,30 @@
 /* Core */
-import { configureStore, type ThunkAction, type Action } from '@reduxjs/toolkit'
+import { configureStore, type ThunkAction, type Action } from "@reduxjs/toolkit"
 import {
   useSelector as useReduxSelector,
   useDispatch as useReduxDispatch,
   type TypedUseSelectorHook,
-} from 'react-redux'
+} from "react-redux"
 
 /* Instruments */
-import { reducer } from './rootReducer'
-import { middleware } from './middleware'
+
+import { middleware } from "./middleware"
+
+import { counterSlice } from "./slices"
+import { placesSlice } from "./placesSlice"
+import { mapSlice } from "./mapSlice"
 
 export const reduxStore = configureStore({
-  reducer,
+  reducer: {
+    places: placesSlice.reducer,
+    map: mapSlice.reducer,
+
+    counter: counterSlice.reducer,
+  },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(middleware)
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(middleware)
   },
 })
 export const useDispatch = () => useReduxDispatch<ReduxDispatch>()

@@ -8,16 +8,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary-100": "#0085ff",
-        "primary-200": "#69b4ff",
-        "primary-300": "#e0ffff",
-        "accent-100": "#006fff",
-        "accent-200": "#e1ffff",
-        "text-100": "#FFFFFF",
-        "text-200": "#9e9e9e",
-        "bg-100": "#1E1E1E",
-        "bg-200": "#2d2d2d",
-        "bg-300": "#454545",
+        birdo: {
+          accent: {
+            700: "#A43323",
+            500: "#e5614e",
+            100: "#fce7e4",
+          },
+          50: "#eefcf4",
+          100: "#d3f8e3",
+          200: "#a9efcd",
+          300: "#76e0b7",
+          400: "#57d1aa",
+          500: "#1aad88",
+          600: "#0d8c73",
+          700: "#0b6f62",
+          800: "#0b5b53",
+          900: "#0a4845",
+          950: "#04292a",
+        },
       },
       spacing: {
         28: "7rem",
@@ -43,5 +51,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: ['@tailwindcss/forms'],
 }
