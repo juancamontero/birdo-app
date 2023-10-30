@@ -19,7 +19,7 @@ export const Parameters = () => {
             htmlFor="distance"
             className="block text-sm font-bold text-birdo-100 w-2/5 leading-none"
           >
-            Distance
+            Distance (km)
           </label>
 
           <input
@@ -36,7 +36,7 @@ export const Parameters = () => {
           />
 
           <p className="block text-sm  text-end font-bold text-birdo-accent-500 w-1/5 leading-none">
-            {distance} kms
+            {distance}
           </p>
         </div>
 
