@@ -1,18 +1,28 @@
-import { useObservationsStore } from "@/lib/redux"
-import { IconTelescope } from "@tabler/icons-react"
+import { openObs, useDispatch, useObservationsStore } from "@/lib/redux"
 
-export const BtnNearByNotableObs = () => {
+
+type Props = {
+  maxResults?: number
+  dist?: number
+}
+
+export const BtnNearByNotableObs = ({ maxResults, dist }: Props) => {
+  const dispatch = useDispatch()
   const { getRecentNearbyNotableObservations } = useObservationsStore()
+
+  const showObservations = () => {
+    getRecentNearbyNotableObservations(maxResults, dist)
+    dispatch(openObs())
+  }
   return (
     <button
-      className="flex items-center px-2 py-2 text-xs tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
-      onClick={() => getRecentNearbyNotableObservations(50)}
+      className="w-full  lg:mx-0 lg:py-1 rounded-sm text-sm py-1 mb-0.5 shadow-2xl bg-birdo-600 text-white hover:bg-birdo-700 hover:text-birdo-50 focus:outline-none focus:ring active:text-birdo-accent-100"
+      onClick={showObservations}
     >
-      <svg className="w-5 h-5 mx-1" viewBox="0 0 20 20" fill="currentColor">
-        <IconTelescope />
-      </svg>
-
-      <span className="mx-1">Recent nearby notable observations</span>
+      <span className="text-sm leading-tight font-medium text-left">
+        Recent nearby notable
+      </span>
+    
     </button>
   )
 }

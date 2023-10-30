@@ -8,9 +8,6 @@ import './globals.css'
 
 import { Inter } from "next/font/google"
 
-import { HeroHome } from './components/landing'
-
-
 export const metadata: Metadata = {
   title: "BirdoApp",
   description: "Bird sightings",
@@ -35,7 +32,6 @@ export default function RootLayout({
       <html lang="en">
       <body className={bodyBasicStyle}>
         {/*  */}
-        <HeroHome />
         {children}
         {/* <Footer /> */}
       </body>

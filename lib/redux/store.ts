@@ -10,16 +10,15 @@ import {
 
 import { middleware } from "./middleware"
 
-import { counterSlice } from "./slices"
 import { placesSlice } from "./placesSlice"
 import { mapSlice } from "./mapSlice"
+import { uiSlice } from "./uiSlice/uiSlice"
 
 export const reduxStore = configureStore({
   reducer: {
     places: placesSlice.reducer,
     map: mapSlice.reducer,
-
-    counter: counterSlice.reducer,
+    ui: uiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({

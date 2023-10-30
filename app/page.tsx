@@ -1,7 +1,13 @@
 /* Components */
-import { HomeMain } from './components/landing'
+
+import { HeroHome } from "./components/landing"
+import { HomeMain } from "./components/landing"
 
 export default function IndexPage() {
-  return <HomeMain/>
+  return (
+    <main>
+      <HeroHome />
+      <HomeMain />
+    </main>
+  )
 }
-

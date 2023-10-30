@@ -7,6 +7,7 @@ const initialState: MapSliceState = {
   isMapReady: false,
   map: undefined,
   markers: [],
+  userCurrentMarker: undefined,
 }
 
 export const mapSlice = createSlice({
@@ -20,15 +21,23 @@ export const mapSlice = createSlice({
     setMarkers: (state, action: PayloadAction<Marker[]>) => {
       state.markers = action.payload
     },
+    cleanMarkers: (state) => {
+      state.markers.forEach((marker) => marker.remove())
+    },
+    setCurrentUserMarker: (state, action: PayloadAction<Marker>) => {
+      state.userCurrentMarker = action.payload
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setMap , setMarkers} = mapSlice.actions
+export const { cleanMarkers, setMap, setMarkers, setCurrentUserMarker } =
+  mapSlice.actions
 
 /* Types */
 export interface MapSliceState {
   isMapReady: boolean
   map?: Map
   markers: Marker[]
+  userCurrentMarker: Marker | undefined
 }
