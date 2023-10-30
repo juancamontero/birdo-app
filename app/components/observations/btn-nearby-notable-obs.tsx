@@ -11,8 +11,8 @@ export const BtnNearByNotableObs = ({ maxResults, dist }: Props) => {
   const { getRecentNearbyNotableObservations } = useObservationsStore()
 
   const showObservations = () => {
-    getRecentNearbyNotableObservations(maxResults, dist)
     dispatch(openObs())
+    getRecentNearbyNotableObservations(maxResults, dist)
   }
   return (
     <button
